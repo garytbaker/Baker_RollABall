@@ -4,7 +4,7 @@
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class PlayerControllerNew : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     // Create public variables for player speed, and for the Text UI game objects
@@ -44,7 +44,7 @@ public class PlayerControllerNew : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
-        if (other.gameObject.CompareTag("Pick Up"))
+        if (other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
 
