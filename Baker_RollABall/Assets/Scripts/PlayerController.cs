@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     // Create public variables for player speed, and for the Text UI game objects
     public float speed;
-    public float boostSpeed;
+    public float boostSpeed;  //the speed to move by when hitting a boost
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private float movementY;
 
     private Rigidbody rb;
-    private int count;
+    private int count;  //the score
 
     // At the start of the game..
     void Start()
@@ -63,25 +63,25 @@ public class PlayerController : MonoBehaviour
             // Run the 'SetCountText()' function (see below)
             SetCountText();
         }
-        if (other.gameObject.CompareTag("Boost"))
+        if (other.gameObject.CompareTag("Boost"))   //if the object is a boost
         {
             
-            Vector3 boostMovement = other.gameObject.GetComponent<boost>().direction;
-            rb.AddForce(boostMovement * boostSpeed);
+            Vector3 boostMovement = other.gameObject.GetComponent<boost>().direction;  //gets diurectional info from boost script
+            rb.AddForce(boostMovement * boostSpeed);  //moves the ball
         }
     }
 
-    void OnMove(InputValue value)
+    void OnMove(InputValue value)   //this function gets input and makes it into usable data
     {
         Vector2 v = value.Get<Vector2>();
 
-        movementX = v.x;
+        movementX = v.x;   //turning the input into data for movement
         movementY = v.y;
     }
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        countText.text = "Count: " + count.ToString();  //updates the ui
 
         if (count >= 12)
         {
