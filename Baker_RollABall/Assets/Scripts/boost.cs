@@ -7,4 +7,5 @@ using UnityEngine;
 public class boost : MonoBehaviour
 {
     public Vector3 direction = new Vector3(1f, 0f, 0f);  //the direction of the boost
+}
 
