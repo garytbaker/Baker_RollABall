@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     // Create public variables for player speed, and for the Text UI game objects
     public float speed;
+    public float boostSpeed;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
@@ -61,6 +62,11 @@ public class PlayerController : MonoBehaviour
 
             // Run the 'SetCountText()' function (see below)
             SetCountText();
+        }
+        if (other.gameObject.CompareTag("Boost"))
+        {
+            Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+            rb.AddForce(movement * boostSpeed);
         }
     }
 
