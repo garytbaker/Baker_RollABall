@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    bool goingLeft = true;
     private Vector3 startPosition;
     private Vector3 endPosition;
     public float speed = .1f;

@@ -65,8 +65,9 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Boost"))
         {
-            Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-            rb.AddForce(movement * boostSpeed);
+            
+            Vector3 boostMovement = other.gameObject.GetComponent<boost>().direction;
+            rb.AddForce(boostMovement * boostSpeed);
         }
     }
 
